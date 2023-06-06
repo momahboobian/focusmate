@@ -1,6 +1,5 @@
 import React from "react";
 import { AppBar, Toolbar, Typography, Button, Avatar } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
 import avatar from "../images/image-avatar.png";
 
 const Header = () => {
