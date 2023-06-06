@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Grid } from "@mui/material";
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
+import Calendar from "./components/Calendar";
+import NavBar from "./components/NavBar";
 
-function App() {
+import "./App.css";
+
+const App = () => {
+  const [showSidebar, setShowSidebar] = useState(true);
+
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header />
+      <NavBar toggleSidebar={toggleSidebar} />
+      <Grid container className="main">
+        {showSidebar && (
+          <Grid item xs={3}>
+            <Sidebar />
+          </Grid>
+        )}
+        <Grid item xs={showSidebar ? 9 : 12}>
+          <Calendar />
+        </Grid>
+      </Grid>
     </div>
   );
-}
+};
 
 export default App;
