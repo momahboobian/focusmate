@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Button, Checkbox, Link, Typography } from "@mui/material";
 import "../styles/Sidebar.css";
 
-const Sidebar = ({ toggleSidebar }) => {
+const Sidebar = ({ toggleSidebar, selectedPerson }) => {
   const [isAllMembersChecked, setIsAllMembersChecked] = useState(false);
 
   const handleAllMembersCheckboxChange = () => {
@@ -30,9 +30,29 @@ const Sidebar = ({ toggleSidebar }) => {
             View All
           </Link>
         </Typography>
-        <Typography variant="body1" className="upcoming-text">
-          No upcoming sessions today
-        </Typography>
+        {selectedPerson ? (
+          <>
+            <Typography variant="body1" className="upcoming-text">
+              Upcoming session today
+            </Typography>
+            <Typography variant="body1" className="upcoming-text">
+              {selectedPerson.name}
+            </Typography>
+            <Button
+              variant="contained"
+              color="primary"
+              className="zoom-link-button"
+              href={selectedPerson.zoomLink}
+              target="_blank"
+            >
+              Zoom Link
+            </Button>
+          </>
+        ) : (
+          <Typography variant="body1" className="upcoming-text">
+            No upcoming sessions today
+          </Typography>
+        )}
         <Link
           href="#"
           className="upcoming-link sidebar-box-link"

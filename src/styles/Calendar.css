@@ -32,3 +32,49 @@ thead th {
 .dotted-cell:first-child {
   border-right: none;
 }
+
+.cell-content {
+  position: relative;
+}
+
+.cell-buttons {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cell-content:hover .cell-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70px;
+  margin-top: 5px;
+}
+.calendar-container {
+  margin-top: 30px;
+}
+
+.cell-content:hover .cell-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell-buttons {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wide-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.wide-table .time-label-cell {
+  width: 20px; /* Adjust the width as per your requirements */
+}
